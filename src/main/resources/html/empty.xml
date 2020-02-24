@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="data/vast.xsd">
+    <Ad id="empty">
+        <InLine>
+            <AdSystem version="1.0">AdFox IMHO Vi</AdSystem>
+            <AdTitle>empty</AdTitle>
+            <Impression><![CDATA[]]></Impression>
+            <Impression><![CDATA[http://92.242.32.231/fcgi-bin/dispatch.fcgi?a.A=im&a.si=3558&a.te=6&a.he=1&a.wi=1&a.hr=p&a.ra=%session_id%]]></Impression>
+            <Creatives>
+                <Creative AdID="empty">
+                    <Linear>
+                        <Duration>00:00:00</Duration>
+                    </Linear>
+                </Creative>
+            </Creatives>
+            <Extensions>
+                <Extension type="CustomTracking">
+                    <Tracking event="onVastLoad"><![CDATA[http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_monitoring-1/%session_id%]]></Tracking>
+                    <Tracking event="onVastLoad"><![CDATA[http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_counter-1/%session_id%]]></Tracking>
+                    <Tracking event="onVastLoad"><![CDATA[http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_video-31319/%session_id%]]></Tracking>
+                    <Tracking event="onVastLoad"><![CDATA[http://92.242.32.231/fcgi-bin/dispatch.fcgi?a.A=im&a.si=3558&a.te=6&a.he=1&a.wi=1&a.hr=p&a.ra=%session_id%]]></Tracking>
+                </Extension>
+            </Extensions>
+        </InLine>
+    </Ad>
+</VAST>

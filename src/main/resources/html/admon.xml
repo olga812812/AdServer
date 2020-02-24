@@ -1,0 +1,222 @@
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:noNamespaceSchemaLocation="http://specs.adfox.ru/uploads/vast.xsd">
+    <Ad id="3145651">
+        <InLine>
+            <AdSystem version="1.0">AdFox IMHO</AdSystem>
+            <AdTitle>VAST Ad</AdTitle>
+            <Error>
+                <![CDATA[
+http://92.242.32.231/226279/event?hash=84762d75d3b45dee&rand=%session_id%&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=fbyjcrb&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=u&p2=eyit&dl=@https://92.242.32.231/V13a****imhovi_mobile/ru/CP1251/tmsec=imhovi_totaldm/1567587659
+]]>
+            </Error>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/226279/event?hash=af22ff339b7042f0&rand=%session_id%&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=fbyjcrb&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=b&p2=eyit&dl=&puid7=167
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[ ]]>
+            </Impression>
+            <Impression>
+                <![CDATA[ ]]>
+            </Impression>
+            <Impression>
+                <![CDATA[ ]]>
+            </Impression>
+            <Impression>
+                <![CDATA[ ]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a****imhovi_mobile/ru/CP1251/tmsec=imhovi_Impression1/%session_id%/
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a****vitpc_mobile/ru/CP1251/tmsec=vitpc_sc41601-Impression2/%session_id%/
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a**crid:3145651**cat_ad/ru/UTF-8/tmsec=catad_Impression3/%session_id%/
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a****vitpc_mobile/ru/CP1251/tmsec=vitpc_sid50424-Impression4/%session_id%/
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/watch/48668132?page-url=50424%3Futm_source=%26utm_medium=%26utm_campaign=1090965%26utm_content=3145651%26utm_term=41601&page-ref=
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_counter-Impression5/%session_id%/
+]]>
+            </Impression>
+            <Impression>
+                <![CDATA[
+http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_video-50424Impression6/%session_id%/
+]]>
+            </Impression>
+            <Creatives>
+                <Creative id="3145651/1090965">
+                    <Linear>
+                        <Duration>00:00:15</Duration>
+                        <TrackingEvents>
+                            <Tracking event="creativeView">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=7876fc89f2fa82f7&rand=jzzkmek&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=c&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="start">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=a1816be29629bf62&rand=bykizbn&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=d&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="firstQuartile">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=64721edf477abf77&rand=icugsyg&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=e&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="midpoint">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=603dd6b47938dab5&rand=jfkmcye&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=f&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="thirdQuartile">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=32cb78923fc6c701&rand=ejluzsx&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=g&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="complete">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=61ab5a9bb007a750&rand=mscqyra&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=h&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="mute">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=2e36d8abf0b831c7&rand=ecifnto&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=i&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="unmute">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=af32d70a86ce34bb&rand=koglasj&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=j&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="pause">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=27888f1a0a002fbe&rand=lhdtycy&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=k&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="rewind">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=9341402d10ef56b6&rand=eivmopt&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=l&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="resume">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=8ff26ba47222eb9d&rand=bhdbwxt&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=m&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="fullscreen">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=db9f07865dc6afb1&rand=nkefqum&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=n&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="expand">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=4883625ca47decf1&rand=ewjjbpc&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=o&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="collapse">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=11dc6b31926941b5&rand=bnnbyul&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=p&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="acceptInvitation">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=71e28e403d7a9437&rand=jluhhls&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=q&p2=eyit&dl=
+]]>
+                            </Tracking>
+                            <Tracking event="close">
+                                <![CDATA[
+http://92.242.32.231/226279/event?hash=7accca7279b826d6&rand=jjvbsbw&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=r&p2=eyit&dl=
+]]>
+                            </Tracking>
+                        </TrackingEvents>
+                        <VideoClicks>
+                            <ClickTracking>
+                                <![CDATA[ ]]>
+                            </ClickTracking>
+                            <ClickTracking>
+                                <![CDATA[
+https://92.242.32.231/watch/55175893?page-url=50424%3Futm_source=%26utm_medium=%26utm_campaign=1090965%26utm_content=3145651%26utm_term=41601&page-ref=
+]]>
+                            </ClickTracking>
+                        </VideoClicks>
+                        <AdParameters>
+                            <![CDATA[
+{ "mediafiles":[ { "src":"http://vipk-cache.cdnvideo.ru/imho_cdn/admon/test/5d6512d7c08f4a8b72a60ea3.mp4", "type":"video/mp4" }, { "src":"http://vipk-cache.cdnvideo.ru/imho_cdn/admon/test/5d6512f8c08f4a8b72a6e688.webm", "type":"video/webm" }], "controls": { "close":false, "timer":false, "mute":false }, "forceVolume":true, "vpixUrl":"https://px2.admon.pro/vpix.gif?u=1552293676700&sourceid=50424&subid=1090965&subid2=3145651&subid3=41601&extid=&ts=%session_id%&adformat=video&traffictype=mobileweb&imho=&r=1252969325", "vpaidId":"", "mrcTracker": { "percent":50, "duration":2000, "continuousSeconds":true, "successURL":"http://92.242.32.231/226279/event?hash=b0bd5373f0b44939&rand=egppism&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=be&p2=eyit&dl=", "invisibleURL":"http://92.242.32.231/226279/event?hash=d3380863e82b9928&rand=lhmyqth&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=bc&p2=eyit&dl=", "errorURL":"http://92.242.32.231/226279/event?hash=1c833b8759cc3777&rand=legewdl&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&lts=%session_id%&p5=gwzip&pr=a&p1=cdkws&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&pm=bd&p2=eyit&dl=" }, "clickURL":"http://92.242.32.231/226279/goLink?hash=4b3fda66348ffa92&rand=fxbvjug&rqs=PGTTkKLTsylLfW9duxbN9DQekzQUm8Rg&p5=gwzip&pr=a&p1=cdkws&p2=eyit&sj=RIkmrV99TOPMnH0i3HTb1uj_aMwcKgDczbadCmZJWVlLvkqO_ePyIRLfp5vewfKH-ZzCMHlRiGjbA-w0Kg%3D%3D&dl=&puid7=167&pf=", "closeTime":"0", "eventsTracker": { "AdVideoStart":"", "AdVideoFirstQuartile":"", "AdVideoMidpoint":"", "AdVideoThirdQuartile":"", "AdVideoComplete":"", "AdClickThru":"" } }
+]]>
+                        </AdParameters>
+                        <MediaFiles>
+                            <MediaFile maintainAspectRatio="true" scalable="true" delivery="progressive" width="720" height="400" bitrate="512" apiFramework="VPAID" type="application/javascript">
+                                <![CDATA[ https://cdn-s.admon.pro/st/main.js ]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+            <Extensions>
+                <Extension type="Urlmod" scope="" method="" final="false">
+                    <urlpart>
+                        <![CDATA[ ]]>
+                    </urlpart>
+                </Extension>
+                <Extension type="CustomTracking">
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/V13a****imhovi_mobile/ru/CP1251/tmsec=imhovi_totaldm/%session_id%/
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_counter-/%session_id%/
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_video-50424/%session_id%/
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/fcgi-bin/dispatch.fcgi?d.A=tp&d.k=wam_segments&d.m=push&d.v=177813
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/watch/48668432?page-url=50424%3Futm_source=%26utm_medium=%26utm_campaign=1090965%26utm_content=3145651%26utm_term=41601&page-ref=
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://92.242.32.231/V13a****vitpc_mobile/ru/CP1251/tmsec=vitpc_sid50424-vitid/%session_id%/
+]]>
+                    </Tracking>
+                    <Tracking event="onVastLoad">
+                        <![CDATA[
+http://tag.rutarget.ru/tag?event=addToSegment&name=imho_test&value=50424&check=false&response=syncframe
+]]>
+                    </Tracking>
+                </Extension>
+                <Extension type="vnCache" caching="true" strict="true"/>
+                <Extension type="skipTime2">
+                    <![CDATA[ 00:04 ]]>
+                </Extension>
+            </Extensions>
+        </InLine>
+    </Ad>
+</VAST>
