@@ -3,6 +3,7 @@ package adserver.domain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -24,7 +25,6 @@ import java.util.*;
 @Service
 @RequestScope
 public class AdRequest {
-        @Value("${adserver.config.file}")
         private String adserverConfigFile;
         private ConfigFile configFile;
         private HttpServletRequest request;
@@ -33,9 +33,10 @@ public class AdRequest {
         private Logger log = LoggerFactory.getLogger(AdRequest.class);
 
 
-        public AdRequest(HttpServletRequest request, HttpServletResponse response){
+        public AdRequest(HttpServletRequest request, HttpServletResponse response,  @Value("${adserver.config.file}") String adserverConfigFile){
             this.request=request;
             this.response=response;
+            this.adserverConfigFile=adserverConfigFile;
             configFile = new ConfigFile(adserverConfigFile);
         }
 
