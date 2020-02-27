@@ -1,8 +1,15 @@
 package adserver.domain;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Value;
-import sun.security.krb5.Config;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.annotation.RequestScope;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,28 +21,36 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-@Slf4j
+@Service
+@RequestScope
 public class AdRequest {
-        private String requestId = String.valueOf(new Random().nextInt(Integer.MAX_VALUE));
+        @Value("${adserver.config.file}")
+        private String adserverConfigFile;
         private ConfigFile configFile;
         private HttpServletRequest request;
         private HttpServletResponse response;
-        private String adserverConfigFile;
+        private String requestId = String.valueOf(new Random().nextInt(Integer.MAX_VALUE));
+        private Logger log = LoggerFactory.getLogger(AdRequest.class);
 
-        public AdRequest(HttpServletRequest request, HttpServletResponse response, String adserverConfigFile){
+
+        public AdRequest(HttpServletRequest request, HttpServletResponse response){
             this.request=request;
             this.response=response;
-            this.adserverConfigFile = adserverConfigFile;
             configFile = new ConfigFile(adserverConfigFile);
-          }
+        }
 
 
 
         public void logInfoAboutRequest(){
+            addRequestIdToLogFile();
             log.info("URI is: "+request.getRequestURL()+"?"+request.getQueryString() +" requestId is: " + requestId);
             Collections.list(request.getHeaderNames()).forEach(header->log.info("RequestHeader: " + header+": " + request.getHeader(header)));
             log.info("Requests's client IP: " + request.getRemoteAddr());
         }
+
+        private void addRequestIdToLogFile() {
+            MDC.put("requestId", requestId);
+         }
 
         public void createResponse() throws IOException {
             setHeadersToResponse();
@@ -51,7 +66,7 @@ public class AdRequest {
         }
 
         private void setCookiesToResponse(){
-            ArrayList<String> cookies = configFile.getKeysOrValuesFromConfig("cookie", "value");
+            ArrayList<String> cookies = configFile.getKeysOrValuesFromConfig("Cookie", "value");
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("E, dd-MMM-yyy, hh:mm:ss", Locale.ENGLISH);
             String  expiresDate = LocalDateTime.now().plusMonths(1).format(dateFormatter);
             cookies.forEach(cookie->response.addHeader("Set-Cookie", cookie+requestId+"; expires="+expiresDate+" GMT; path=/; domain="+configFile.getProperty("cookie.domain")));
