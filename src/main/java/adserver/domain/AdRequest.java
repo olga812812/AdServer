@@ -25,7 +25,6 @@ import java.util.*;
 @Service
 @RequestScope
 public class AdRequest {
-        private String adserverConfigFile;
         private ConfigFile configFile;
         private HttpServletRequest request;
         private HttpServletResponse response;
@@ -36,7 +35,6 @@ public class AdRequest {
         public AdRequest(HttpServletRequest request, HttpServletResponse response,  @Value("${adserver.config.file}") String adserverConfigFile){
             this.request=request;
             this.response=response;
-            this.adserverConfigFile=adserverConfigFile;
             configFile = new ConfigFile(adserverConfigFile);
         }
 
