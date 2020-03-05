@@ -16,7 +16,7 @@ public class AdServerApi {
     AdRequest adRequest;
 
     @GetMapping(path="/**", produces = MediaType.APPLICATION_XML_VALUE)
-    public void getAllRequests() throws IOException {
+    public void getAllRequests()  {
         adRequest.logInfoAboutRequest();
         adRequest.createResponse();
         adRequest.logInfoAboutResponse();

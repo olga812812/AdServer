@@ -12,17 +12,17 @@ import java.util.Properties;
 import java.util.Set;
 
 @Slf4j
-public class ConfigFile {
+class ConfigFile {
     private String defaultRespCode,defaultFile,defaultLocation;
     private String[] defaultResponse;
     private String responseUrlFromConfigFile;
     private String adserverConfigFile;
 
-    public ConfigFile(String adserverConfigFile){
+    ConfigFile(String adserverConfigFile){
         this.adserverConfigFile = adserverConfigFile;
     }
 
-    public String[] getResponseFromConfigFile(HttpServletRequest request) {
+    String[] getResponseFromConfigFile(HttpServletRequest request) {
         String responseVastFileName;
         String responseCode;
         String responseLocation;
@@ -101,7 +101,7 @@ public class ConfigFile {
         return responseUrlFromConfigFile;
     }
 
-    protected ArrayList<String> getKeysOrValuesFromConfig(String key, String resultType) {
+     ArrayList<String> getKeysOrValuesFromConfig(String key, String resultType) {
         Set<String> allProperties = loadPropertiesFromConfigFile().stringPropertyNames();
         ArrayList<String> dataFromConfigFile = new ArrayList<>();
 
@@ -113,22 +113,22 @@ public class ConfigFile {
         return dataFromConfigFile;
     }
 
-    synchronized public Properties loadPropertiesFromConfigFile()
+    synchronized private Properties loadPropertiesFromConfigFile()
     {
         Properties properties = new Properties();
         try (FileInputStream stream = new FileInputStream(new File(adserverConfigFile));
              InputStreamReader reader = new InputStreamReader(stream, "Windows-1251")) {
             properties.load(reader);
             }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            System.out.println(ex);
+           exception.printStackTrace();
         }
         return properties;
     }
 
 
-    public String getProperty(String propertyName)
+    String getProperty(String propertyName)
     {
         return loadPropertiesFromConfigFile().getProperty(propertyName);
     }

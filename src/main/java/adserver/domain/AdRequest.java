@@ -3,12 +3,8 @@ package adserver.domain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.annotation.RequestScope;
 
 
@@ -44,14 +40,14 @@ public class AdRequest {
             addRequestIdToLogFile();
             log.info("URI is: "+request.getRequestURL()+"?"+request.getQueryString() +" requestId is: " + requestId);
             Collections.list(request.getHeaderNames()).forEach(header->log.info("RequestHeader: " + header+": " + request.getHeader(header)));
-            log.info("Requests's client IP: " + request.getRemoteAddr());
+            log.info("Request client's IP: " + request.getRemoteAddr());
         }
 
         private void addRequestIdToLogFile() {
             MDC.put("requestId", requestId);
          }
 
-        public void createResponse() throws IOException {
+        public void createResponse()  {
             setHeadersToResponse();
             setResponseBody();
         }
@@ -72,49 +68,52 @@ public class AdRequest {
 
         }
 
-        private void setResponseBody() throws IOException {
-            PrintWriter responseBody = response.getWriter();
-            String[] responseFromConfigFile = configFile.getResponseFromConfigFile(request);
-            String responseCode=responseFromConfigFile[0];
+        private void setResponseBody() {
+            try(PrintWriter responseBody = response.getWriter();) {
 
-            switch(responseCode) {
-                case "200":
-                    if(responseCode.equals("200")) {
-                        response.setStatus(200);
-                        response.setContentType("text/xml");
-                        String pathToVastFiles = configFile.getProperty("pathToVastFiles");
-                        String responseVastFile = responseFromConfigFile[1];
-                        log.info("Response file is:  " +responseVastFile);
+                String[] responseFromConfigFile = configFile.getResponseFromConfigFile(request);
+                String responseCode = responseFromConfigFile[0];
 
-                        Scanner in = new Scanner(new FileInputStream(new File(pathToVastFiles + responseVastFile)));
-                        String responseVastFileLine;
+                switch (responseCode) {
+                    case "200":
+                        if (responseCode.equals("200")) {
+                            response.setStatus(200);
+                            response.setContentType("text/xml");
+                            String pathToVastFiles = configFile.getProperty("pathToVastFiles");
+                            String responseVastFile = responseFromConfigFile[1];
+                            log.info("Response file is:  " + responseVastFile);
 
-                        while(in.hasNextLine()) {
-                            responseVastFileLine = in.nextLine();
-                            if(responseVastFileLine.contains("%session_id%")) {
-                                responseVastFileLine = responseVastFileLine.replace("%session_id%", String.valueOf(requestId));
+                            Scanner in = new Scanner(new FileInputStream(new File(pathToVastFiles + responseVastFile)));
+                            String responseVastFileLine;
+
+                            while (in.hasNextLine()) {
+                                responseVastFileLine = in.nextLine();
+                                if (responseVastFileLine.contains("%session_id%")) {
+                                    responseVastFileLine = responseVastFileLine.replace("%session_id%", String.valueOf(requestId));
+                                }
+                                responseBody.println(responseVastFileLine);
                             }
-                            responseBody.println(responseVastFileLine);
+                            in.close();
                         }
-                        in.close();
-                    }
-                    break;
-                case "204":
-                    if(responseCode.equals("204")) {
-                        response.setStatus(204);
-                    }
-                    break;
-                case "302":
-                    if(responseCode.equals("302")) {
-                        response.setStatus(302);
-                        response.setHeader("Location", responseFromConfigFile[2]);
                         break;
-                    }
-                default:
-                    response.setStatus(200);
-                    response.setContentType("text/html");
-                    responseBody.println("");
+                    case "204":
+                        if (responseCode.equals("204")) {
+                            response.setStatus(204);
+                        }
+                        break;
+                    case "302":
+                        if (responseCode.equals("302")) {
+                            response.setStatus(302);
+                            response.setHeader("Location", responseFromConfigFile[2]);
+                            break;
+                        }
+                    default:
+                        response.setStatus(200);
+                        response.setContentType("text/html");
+                        responseBody.println("");
+                }
             }
+            catch (Exception exception) {exception.printStackTrace();}
         }
 
         public void logInfoAboutResponse(){
