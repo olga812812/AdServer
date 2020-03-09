@@ -71,13 +71,14 @@ public class AdRequest_testMethod_logInfoAboutRequest {
      @Test
      @DisplayName("Check logging about Request URI")
      public void checkRequestUri(){
+         String requestId = (String)ReflectionTestUtils.getField(adRequest, "requestId");
          mockMethods_WithDefaultValues_ForRequestObject("getRemoteAddr", "getHeaderNames");
          when(request.getRequestURL()).thenReturn(new StringBuffer("http://some/url"));
          when(request.getQueryString()).thenReturn("param1=someText&param2=otherText");
 
          adRequest.logInfoAboutRequest();
 
-        verify(logger, times(1)).info(matches("URI\\sis:\\shttp://some/url\\?param1=someText&param2=otherText\\srequestId\\sis:\\s\\d+"));
+        verify(logger, times(1)).info("URI is: http://some/url?param1=someText&param2=otherText requestId is: "+requestId);
      }
 
     @Test

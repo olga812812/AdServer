@@ -53,7 +53,7 @@ public class AdRequest {
         }
 
         private void setHeadersToResponse(){
-            if (request.getHeader("Cookie")==null) setCookiesToResponse();
+            if(request.getHeader("Cookie")==null) setCookiesToResponse();
             if(request.getHeader("Origin") != null) {
                 response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
                 response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -69,8 +69,6 @@ public class AdRequest {
         }
 
         private void setResponseBody() {
-            try(PrintWriter responseBody = response.getWriter();) {
-
                 String[] responseFromConfigFile = configFile.getResponseFromConfigFile(request);
                 String responseCode = responseFromConfigFile[0];
 
@@ -82,18 +80,7 @@ public class AdRequest {
                             String pathToVastFiles = configFile.getProperty("pathToVastFiles");
                             String responseVastFile = responseFromConfigFile[1];
                             log.info("Response file is:  " + responseVastFile);
-
-                            Scanner in = new Scanner(new FileInputStream(new File(pathToVastFiles + responseVastFile)));
-                            String responseVastFileLine;
-
-                            while (in.hasNextLine()) {
-                                responseVastFileLine = in.nextLine();
-                                if (responseVastFileLine.contains("%session_id%")) {
-                                    responseVastFileLine = responseVastFileLine.replace("%session_id%", String.valueOf(requestId));
-                                }
-                                responseBody.println(responseVastFileLine);
-                            }
-                            in.close();
+                            addVastFileToResponseBody(pathToVastFiles + responseVastFile);
                         }
                         break;
                     case "204":
@@ -107,13 +94,29 @@ public class AdRequest {
                             response.setHeader("Location", responseFromConfigFile[2]);
                             break;
                         }
-                    default:
-                        response.setStatus(200);
-                        response.setContentType("text/html");
-                        responseBody.println("");
                 }
+
+        }
+
+        private void addVastFileToResponseBody(String pathToVastFile) {
+            try(PrintWriter responseBody = response.getWriter();) {
+            Scanner in = getScanner(pathToVastFile);
+            String responseVastFileLine;
+
+            while (in.hasNextLine()) {
+                responseVastFileLine = in.nextLine();
+                if (responseVastFileLine.contains("%session_id%")) {
+                    responseVastFileLine = responseVastFileLine.replace("%session_id%", String.valueOf(requestId));
+                }
+                responseBody.println(responseVastFileLine);
+            }
+            in.close();
             }
             catch (Exception exception) {exception.printStackTrace();}
+        }
+
+        Scanner getScanner(String pathToVastFile) throws IOException {
+            return new Scanner(new FileInputStream(new File(pathToVastFile)));
         }
 
         public void logInfoAboutResponse(){

@@ -22,8 +22,7 @@ public class AdServerApplicationSmokeTests {
 
     @Test
     public void checkRespCode200() throws  Exception {
-        System.out.println("some test");
-        mvc.perform(get("/puid30=5318")).andExpect(status().isOk()).andExpect(content().string(containsString("You got text.xml file")));
+       mvc.perform(get("/puid30=5318")).andExpect(status().isOk()).andExpect(content().string(containsString("You got text.xml file")));
     }
 
     @Test
@@ -43,9 +42,8 @@ public class AdServerApplicationSmokeTests {
 
     @Test
     public void checkCorsHeaders() throws  Exception {
-        String originValue = "someText";
-        mvc.perform(get("/test?var=code204").header("Origin", originValue)).andExpect(status().isNoContent())
-                .andExpect(header().string("Access-Control-Allow-Origin", originValue))
+       mvc.perform(get("/test?var=code204").header("Origin", "OriginHeaderValue")).andExpect(status().isNoContent())
+                .andExpect(header().string("Access-Control-Allow-Origin", "OriginHeaderValue"))
                         .andExpect(header().string("Access-Control-Allow-Credentials", "true"));
     }
 

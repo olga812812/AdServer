@@ -64,10 +64,8 @@ class ConfigFile {
                 }
 
         }
-        responseVastFileName = "0";
-        responseLocation = "0";
-        return new String[]{responseCode, responseVastFileName, responseLocation};
 
+      return defaultResponse;
     }
 
     private boolean isDefaultDataInConfigFile() {
