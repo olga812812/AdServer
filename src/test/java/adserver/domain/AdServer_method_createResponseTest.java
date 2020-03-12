@@ -24,7 +24,7 @@ import java.util.Scanner;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AdServer_testMethod_createResponse {
+public class AdServer_method_createResponseTest {
     @Mock
     HttpServletResponse response;
     @Mock

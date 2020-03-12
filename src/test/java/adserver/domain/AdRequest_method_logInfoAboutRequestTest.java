@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 
-public class AdRequest_testMethod_logInfoAboutRequest {
+public class AdRequest_method_logInfoAboutRequestTest {
     @Mock
     private HttpServletRequest request;
     @Mock

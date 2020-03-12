@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @TestPropertySource(locations = "/test.properties")
 @AutoConfigureMockMvc
-public class AdServerApplicationSmokeTests {
+public class AdServerApplicationSmokeTest {
     @Autowired
     private MockMvc mvc;
 
