@@ -42,7 +42,7 @@ public class AdRequest_testMethod_logInfoAboutRequest {
     @Test
     @DisplayName("Check logging about Request Headers: no request headers")
     public void noRequestHeaders(){
-        mockMethods_WithDefaultValues_ForRequestObject("getRequestURL","getQueryString","getRemoteAddr");
+        mockMethods_WithDefaultValues("getRequestURL","getQueryString","getRemoteAddr");
         when(request.getHeaderNames()).thenReturn(Collections.emptyEnumeration());
 
         adRequest.logInfoAboutRequest();
@@ -50,29 +50,12 @@ public class AdRequest_testMethod_logInfoAboutRequest {
         verify(logger, never()).info(contains("RequestHeader:"));
     }
 
-    @ParameterizedTest
-    @DisplayName("Check logging about Request Headers: several request headers")
-    @ValueSource(strings = {"oneHeader",
-                            "firstHeader,secondHeader,thirdHeader"})
-    public void threeRequestHeaders(String requestHeadersString){
-        mockMethods_WithDefaultValues_ForRequestObject("getRequestURL","getQueryString","getRemoteAddr");
-        when(request.getHeaderNames()).thenReturn(createRequestHeadersEnumeration(requestHeadersString));
-        for (String header: requestHeadersString.split(",")) {
-            when(request.getHeader(header)).thenReturn(header+"Value");
-        }
-
-        adRequest.logInfoAboutRequest();
-
-        for (String header: requestHeadersString.split(",")) {
-            verify(logger, times(1)).info("RequestHeader: "+header+": "+header+"Value");
-        }
-     }
 
      @Test
      @DisplayName("Check logging about Request URI")
      public void checkRequestUri(){
          String requestId = (String)ReflectionTestUtils.getField(adRequest, "requestId");
-         mockMethods_WithDefaultValues_ForRequestObject("getRemoteAddr", "getHeaderNames");
+         mockMethods_WithDefaultValues("getRemoteAddr", "getHeaderNames");
          when(request.getRequestURL()).thenReturn(new StringBuffer("http://some/url"));
          when(request.getQueryString()).thenReturn("param1=someText&param2=otherText");
 
@@ -84,7 +67,7 @@ public class AdRequest_testMethod_logInfoAboutRequest {
     @Test
     @DisplayName("Check logging about Request client's IP")
     public void checkClientIp(){
-        mockMethods_WithDefaultValues_ForRequestObject("getRequestURL","getQueryString","getHeaderNames");
+        mockMethods_WithDefaultValues("getRequestURL","getQueryString","getHeaderNames");
         when(request.getRemoteAddr()).thenReturn("125.35.2.1");
 
         adRequest.logInfoAboutRequest();
@@ -92,9 +75,26 @@ public class AdRequest_testMethod_logInfoAboutRequest {
         verify(logger, times(1)).info("Request client's IP: 125.35.2.1");
     }
 
+    @ParameterizedTest
+    @DisplayName("Check logging about Request Headers: several request headers")
+    @ValueSource(strings = {"oneHeader",
+            "firstHeader,secondHeader,thirdHeader"})
+    public void threeRequestHeaders(String requestHeadersString){
+        mockMethods_WithDefaultValues("getRequestURL","getQueryString","getRemoteAddr");
+        when(request.getHeaderNames()).thenReturn(createRequestHeadersEnumeration(requestHeadersString));
+        for (String header: requestHeadersString.split(",")) {
+            when(request.getHeader(header)).thenReturn(header+"Value");
+        }
+
+        adRequest.logInfoAboutRequest();
+
+        for (String header: requestHeadersString.split(",")) {
+            verify(logger, times(1)).info("RequestHeader: "+header+": "+header+"Value");
+        }
+    }
 
 
-    private void mockMethods_WithDefaultValues_ForRequestObject(String... methodNames){
+    private void mockMethods_WithDefaultValues(String... methodNames){
         for(String methodName: methodNames){
             switch(methodName){
                 case "getRequestURL":   when(request.getRequestURL()).thenReturn(new StringBuffer(""));

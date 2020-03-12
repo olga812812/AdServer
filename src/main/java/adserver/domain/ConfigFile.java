@@ -6,20 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 class ConfigFile {
-    private String defaultRespCode,defaultFile,defaultLocation;
+    private String   defaultResponseCode,defaultVastFile,defaultLocation;
     private String[] defaultResponse;
-    private String responseUrlFromConfigFile;
-    private String adserverConfigFile;
+    private String   responseUrlFromConfigFile;
+    private String   adServerConfigFile;
 
-    ConfigFile(String adserverConfigFile){
-        this.adserverConfigFile = adserverConfigFile;
+    ConfigFile(String adServerConfigFile){
+        this.adServerConfigFile = adServerConfigFile;
     }
 
     String[] getResponseFromConfigFile(HttpServletRequest request) {
@@ -29,7 +26,7 @@ class ConfigFile {
         String responseNumberFromConfigFile;
 
 
-        if(!isDefaultDataInConfigFile()) throw new IllegalArgumentException("You should add DefaultRespFile, DefaultRespCode and DefaultLocation to config file");
+        if(!isDefaultDataInConfigFile()) throw new IllegalArgumentException("You should add DefaultVastFile, DefaultResponseCode and DefaultLocation to config file");
         responseUrlFromConfigFile = getResponseUrlFromConfigFile(request);
         if(responseUrlFromConfigFile==null) return defaultResponse;
 
@@ -41,7 +38,7 @@ class ConfigFile {
         switch(responseCode) {
             case "200":
                 if(responseCode.equals("200")) {
-                    String[] allVastFilesInResponse =  loadPropertiesFromConfigFile().getProperty("resp" + responseNumberFromConfigFile, defaultFile).split(",");
+                    String[] allVastFilesInResponse =  loadPropertiesFromConfigFile().getProperty("resp" + responseNumberFromConfigFile, defaultVastFile).split(",");
                     responseVastFileName = allVastFilesInResponse[(int)(Math.random()*allVastFilesInResponse.length)];
                     if(responseVastFileName.equals("")) return defaultResponse;
                     responseLocation = "0";
@@ -70,19 +67,19 @@ class ConfigFile {
 
     private boolean isDefaultDataInConfigFile() {
         initDefaultValues();
-        if(defaultFile == null || defaultRespCode == null || defaultLocation == null) return false;
+        if(defaultVastFile == null || defaultResponseCode == null || defaultLocation == null) return false;
         else return true;
     }
 
     private void initDefaultValues() {
-        defaultFile=getProperty("DefaultRespFile");
-        defaultRespCode = getProperty("DefaultRespCode");
+        defaultVastFile=getProperty("DefaultRespFile");
+        defaultResponseCode = getProperty("DefaultRespCode");
         defaultLocation = getProperty("DefaultLocation");
-        defaultResponse = new String[]{defaultRespCode, defaultFile, "0"};
+        defaultResponse = new String[]{defaultResponseCode, defaultVastFile, "0"};
     }
 
     private String getResponseUrlFromConfigFile(HttpServletRequest request) {
-        ArrayList<String> allUrlsFromConfigFile = getKeysOrValuesFromConfig("url", "key");
+        List<String> allUrlsFromConfigFile = getKeysOrValuesFromConfig("url", "key");
         if (allUrlsFromConfigFile.size()== 0) return null;
 
         String requestUriAndQueryString;
@@ -99,29 +96,28 @@ class ConfigFile {
         return responseUrlFromConfigFile;
     }
 
-     ArrayList<String> getKeysOrValuesFromConfig(String key, String resultType) {
+     List<String> getKeysOrValuesFromConfig(String key, String resultType) {
         Set<String> allProperties = loadPropertiesFromConfigFile().stringPropertyNames();
-        ArrayList<String> dataFromConfigFile = new ArrayList<>();
+        List<String> dataFromConfigFile = new ArrayList<>();
 
         allProperties.stream().filter(property->property.length()>=key.length())
                 .filter(property->property.substring(0, key.length()).equals(key))
                 .forEach(property->{
                     if(resultType.equals("key")) dataFromConfigFile.add(property);
                     if (resultType.equals("value")) dataFromConfigFile.add(getProperty(property));});
+
         return dataFromConfigFile;
     }
 
     synchronized private Properties loadPropertiesFromConfigFile()
     {
         Properties properties = new Properties();
-        try (FileInputStream stream = new FileInputStream(new File(adserverConfigFile));
+        try (FileInputStream stream = new FileInputStream(new File(adServerConfigFile));
              InputStreamReader reader = new InputStreamReader(stream, "Windows-1251")) {
             properties.load(reader);
             }
-        catch (Exception exception)
-        {
-           exception.printStackTrace();
-        }
+        catch (Exception exception) {exception.printStackTrace();}
+
         return properties;
     }
 

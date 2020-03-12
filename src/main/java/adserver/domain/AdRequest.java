@@ -37,9 +37,10 @@ public class AdRequest {
 
 
         public void logInfoAboutRequest(){
+            List<String> allRequestHeaders = Collections.list(request.getHeaderNames());
             addRequestIdToLogFile();
             log.info("URI is: "+request.getRequestURL()+"?"+request.getQueryString() +" requestId is: " + requestId);
-            Collections.list(request.getHeaderNames()).forEach(header->log.info("RequestHeader: " + header+": " + request.getHeader(header)));
+            allRequestHeaders.forEach(header->log.info("RequestHeader: " + header+": " + request.getHeader(header)));
             log.info("Request client's IP: " + request.getRemoteAddr());
         }
 
@@ -61,10 +62,11 @@ public class AdRequest {
         }
 
         private void setCookiesToResponse(){
-            ArrayList<String> cookies = configFile.getKeysOrValuesFromConfig("Cookie", "value");
+            List<String> cookies = configFile.getKeysOrValuesFromConfig("Cookie", "value");
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("E, dd-MMM-yyy, hh:mm:ss", Locale.ENGLISH);
             String  expiresDate = LocalDateTime.now().plusMonths(1).format(dateFormatter);
-            cookies.forEach(cookie->response.addHeader("Set-Cookie", cookie+requestId+"; expires="+expiresDate+" GMT; path=/; domain="+configFile.getProperty("cookie.domain")));
+            String cookieDomain = configFile.getProperty("cookie.domain");
+            cookies.forEach(cookie->response.addHeader("Set-Cookie", cookie+requestId+"; expires="+expiresDate+" GMT; path=/; domain="+cookieDomain));
 
         }
 
@@ -79,7 +81,7 @@ public class AdRequest {
                             response.setContentType("text/xml");
                             String pathToVastFiles = configFile.getProperty("pathToVastFiles");
                             String responseVastFile = responseFromConfigFile[1];
-                            log.info("Response file is:  " + responseVastFile);
+                            log.info("Response file is: " + responseVastFile);
                             addVastFileToResponseBody(pathToVastFiles + responseVastFile);
                         }
                         break;
